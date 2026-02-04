@@ -1,10 +1,14 @@
 import React from "react";
 import Header from "../components/Header";
+import LatestNews from "../components/LatestNews";
 
 const HomeLayout = () => {
   return (
     <div>
       <Header></Header>
+      <section>
+        <LatestNews></LatestNews>
+      </section>
       <main>
         <section className="left_nav"></section>
         <section className="main">
