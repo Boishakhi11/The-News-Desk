@@ -1,13 +1,17 @@
 import React from "react";
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
+import Navbar from "../components/Navbar";
 
 const HomeLayout = () => {
   return (
     <div>
       <Header></Header>
-      <section>
+      <section className="mt-5">
         <LatestNews></LatestNews>
+      </section>
+      <section className="mt-5 w-11/12 mx-auto">
+        <Navbar></Navbar>
       </section>
       <main>
         <section className="left_nav"></section>
