@@ -12,7 +12,13 @@ const Categories = () => {
       </h1>
       <div className="grid gap-3 mt-3.5">
         {categories.map((category) => (
-          <NavLink key={category.id}>{category.name}</NavLink>
+          <NavLink
+            key={category.id}
+            className="text-accent font-semibold hover:text-black"
+            to={`/category/${category.id}`}
+          >
+            {category.name}
+          </NavLink>
         ))}
       </div>
     </div>

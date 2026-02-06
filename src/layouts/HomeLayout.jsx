@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import LeftAside from "../components/HomeLayout/LeftAside";
 import RightAside from "../components/HomeLayout/RightAside";
 import MainFeature from "../components/HomeLayout/MainFeature";
+import { Outlet } from "react-router";
 
 const HomeLayout = () => {
   return (
@@ -21,9 +22,9 @@ const HomeLayout = () => {
           <LeftAside></LeftAside>
         </aside>
         <section className="col-span-6">
-          <layout>
+          <Outlet>
             <MainFeature></MainFeature>
-          </layout>
+          </Outlet>
         </section>
         <aside className="col-span-3">
           <RightAside></RightAside>
