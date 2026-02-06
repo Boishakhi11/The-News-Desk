@@ -2,6 +2,9 @@ import React from "react";
 import Header from "../components/Header";
 import LatestNews from "../components/LatestNews";
 import Navbar from "../components/Navbar";
+import LeftAside from "../components/HomeLayout/LeftAside";
+import RightAside from "../components/HomeLayout/RightAside";
+import MainFeature from "../components/HomeLayout/MainFeature";
 
 const HomeLayout = () => {
   return (
@@ -13,12 +16,18 @@ const HomeLayout = () => {
       <section className="mt-5 w-11/12 mx-auto">
         <Navbar></Navbar>
       </section>
-      <main>
-        <section className="left_nav"></section>
-        <section className="main">
-          <layout></layout>
+      <main className="grid gap-2 grid-cols-12 w-11/12 mx-auto mt-7">
+        <aside className="col-span-3">
+          <LeftAside></LeftAside>
+        </aside>
+        <section className="col-span-6">
+          <layout>
+            <MainFeature></MainFeature>
+          </layout>
         </section>
-        <section className="right_nav"></section>
+        <aside className="col-span-3">
+          <RightAside></RightAside>
+        </aside>
       </main>
     </div>
   );
