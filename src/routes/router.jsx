@@ -5,6 +5,8 @@ import Category from "../pages/Category";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import About from "../pages/About";
+import Carrer from "../pages/Carrer";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
         Component: Register,
       },
     ],
+  },
+  {
+    path: "/about",
+    Component: About,
+  },
+  {
+    path: "/career",
+    element: <Carrer></Carrer>,
   },
   {
     path: "/*",

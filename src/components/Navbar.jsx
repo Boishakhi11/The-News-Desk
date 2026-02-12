@@ -8,11 +8,11 @@ const Navbar = () => {
       <div className="text-accent flex gap-3">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
-        <NavLink to="/career">Carrer</NavLink>
+        <NavLink to="/career">Career</NavLink>
       </div>
       <div className="flex justify-center items-center gap-2">
         <img src={user}></img>
-        <Link to="auth/login" className="btn btn-primary text-white">
+        <Link to="/auth/login" className="btn btn-primary text-white">
           Login
         </Link>
       </div>
