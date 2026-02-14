@@ -1,10 +1,25 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import userIcon from "../assets/user.png";
+import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+  const handleLogOut = () => {
+    console.log("logout");
+    logOut()
+      .then(() => {
+        toast.success("You are logged Out!");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   return (
     <div className="flex justify-between">
-      <div></div>
+      <div>
+        {user && <span>Welcome, {user.displayName || user.email}</span>}
+      </div>
       <div className="text-accent flex gap-3">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/about">About</NavLink>
@@ -12,9 +27,15 @@ const Navbar = () => {
       </div>
       <div className="flex justify-center items-center gap-2">
         <img src={userIcon}></img>
-        <Link to="/auth/login" className="btn btn-primary text-white">
-          Login
-        </Link>
+        {user ? (
+          <button onClick={handleLogOut} className="btn btn-primary text-white">
+            Logout
+          </button>
+        ) : (
+          <Link to="/auth/login" className="btn btn-primary text-white">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

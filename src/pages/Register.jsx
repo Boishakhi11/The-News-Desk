@@ -1,9 +1,10 @@
 import React, { use } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser, setUser } = use(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -17,12 +18,13 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        setUser(user);
+        toast.success("Account created Succesfully");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage);
+        toast.error(errorMessage);
       });
 
     form.reset();
@@ -42,7 +44,6 @@ const Register = () => {
               name="name"
               type="text"
               className="input validator required"
-              pattern="[A-Za-z][A-Za-z0-9\-]*"
               minLength="3"
               maxLength="30"
               placeholder="Enter Name"
