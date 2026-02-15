@@ -1,24 +1,29 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const Login = () => {
+  const [error, setError] = useState("");
   const { signIn } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log({ email, password });
+    //console.log({ email, password });
     signIn(email, password)
       .then((userCredential) => {
         const result = userCredential.user;
+        navigate(`${location.state ? location.state : "/"}`);
         toast.success(`Welcome ${result.displayName || result.email}`);
       })
       .catch((error) => {
         const errorMessage = error.message;
-        toast.error(errorMessage);
+        setError(errorMessage);
       });
 
     form.reset();
@@ -49,6 +54,8 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
+            {error && <p className="text-red-400">{error}</p>}
+
             <button type="submit" className="btn btn-primary mt-4">
               Login
             </button>

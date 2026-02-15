@@ -26,7 +26,10 @@ const Navbar = () => {
         <NavLink to="/career">Career</NavLink>
       </div>
       <div className="flex justify-center items-center gap-2">
-        <img src={userIcon}></img>
+        <img
+          className="w-9 rounded-full"
+          src={`${user ? user.photoURL : userIcon}`}
+        ></img>
         {user ? (
           <button onClick={handleLogOut} className="btn btn-primary text-white">
             Logout

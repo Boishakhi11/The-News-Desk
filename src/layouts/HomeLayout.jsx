@@ -5,10 +5,12 @@ import Navbar from "../components/Navbar";
 import LeftAside from "../components/HomeLayout/LeftAside";
 import RightAside from "../components/HomeLayout/RightAside";
 import MainFeature from "../components/HomeLayout/MainFeature";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import Footer from "../components/Footer";
+import Loading from "../components/Loading";
 
 const HomeLayout = () => {
+  const { state } = useNavigation();
   return (
     <div>
       <Header></Header>
@@ -23,7 +25,7 @@ const HomeLayout = () => {
           <LeftAside></LeftAside>
         </aside>
         <section className="col-span-6">
-          <Outlet></Outlet>
+          {state == "loading" ? <Loading></Loading> : <Outlet></Outlet>}
         </section>
         <aside className="col-span-3 sticky h-fit top-0">
           <RightAside></RightAside>

@@ -1,25 +1,41 @@
-import React, { use } from "react";
-import { Link } from "react-router";
+import React, { use, useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, setUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = use(AuthContext);
+  const [nameError, SetNameError] = useState("");
+
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
+    if (name.length < 5) {
+      SetNameError("Name should be more than 5 characters");
+      return;
+    } else {
+      SetNameError("");
+    }
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name, photo, email, password);
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        setUser(user);
-        toast.success("Account created Succesfully");
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            navigate("/");
+            toast.success("Account created Succesfully");
+          })
+          .catch((error) => {
+            toast.error(error);
+            setUser(user);
+          });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -44,11 +60,13 @@ const Register = () => {
               name="name"
               type="text"
               className="input validator required"
-              minLength="3"
-              maxLength="30"
+              //minLength="3"
+              //maxLength="30"
               placeholder="Enter Name"
               required
             />
+
+            {nameError && <p className="text-red-400">{nameError}</p>}
 
             {/* Photo */}
             <label className="url">Photo URL</label>
