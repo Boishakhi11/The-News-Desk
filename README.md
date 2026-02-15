@@ -1,16 +1,112 @@
-# React + Vite
+NewsDesk is a responsive news browsing platform built with React + Firebase Authentication.
+Users can explore categorized news articles, create an account, log in securely, and access protected pages.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The project demonstrates real-world frontend architecture including authentication context, private routing, environment configuration, and deployment.
 
-Currently, two official plugins are available:
+🚀 Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://newsdeskk.netlify.app
 
-## React Compiler
+✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔐 Firebase Email/Password Authentication
 
-## Expanding the ESLint configuration
+👤 User Registration & Login system
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🛡 Protected Routes (Private pages)
+
+📰 Category-based news browsing
+
+⚡ Fast Vite build setup
+
+🌐 Environment variable configuration
+
+📱 Responsive layout
+
+☁️ Deployed on Netlify
+
+🛠 Tech Stack
+
+Frontend: React (Vite)
+
+Authentication: Firebase Auth
+
+Routing: React Router
+
+State Management: Context API (AuthProvider)
+
+Hosting: Netlify
+
+Environment Config: .env variables
+
+📂 Project Structure
+src/
+├── assets/ # Images & static resources
+
+├── components/ # Reusable UI components
+│ ├── Header.jsx
+│ ├── Navbar.jsx
+│ ├── Footer.jsx
+│ ├── LatestNews.jsx
+│ ├── NewsCard.jsx
+│ ├── NewsDetailsCard.jsx
+│ ├── SocialLogin.jsx
+│ └── Loading.jsx
+
+├── pages/ # Main application pages
+│ ├── Home.jsx
+│ ├── Category.jsx
+│ ├── NewsDetails.jsx
+│ ├── Login.jsx
+│ ├── Register.jsx
+│ ├── About.jsx
+│ └── Career.jsx
+
+├── layouts/ # Page layout wrappers
+│ ├── HomeLayout.jsx
+│ └── AuthLayout.jsx
+
+├── provider/ # Global state management
+│ ├── AuthProvider.jsx
+│ └── PrivateRoute.jsx
+
+├── routes/ # React Router configuration
+│ └── router.jsx
+
+├── firebase/ # Firebase configuration
+│ └── firebase.config.js
+
+├── App.jsx
+└── main.jsx
+
+🔐 Environment Variables
+
+Create a .env.local file:
+
+VITE_apiKey=
+VITE_authDomain=
+VITE_projectId=
+VITE_storageBucket=
+VITE_messagingSenderId=
+VITE_appId=
+
+▶️ Run Locally
+npm install
+npm run dev
+
+📦 Build
+npm run build
+
+👨‍💻 Learning Outcomes
+
+Implemented authentication flow using Firebase
+
+Managed global auth state using React Context API
+
+Implemented private routing
+
+Configured environment variables in Vite
+
+Deployed production build on Netlify
+
+Handled SPA routing using Netlify redirects
