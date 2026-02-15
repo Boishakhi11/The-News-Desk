@@ -56,7 +56,7 @@ const NewsCard = ({ news }) => {
 
         {/* Read More */}
         <Link
-          to={`/news/${id}`}
+          to={`/news-deatis/${id}`}
           className="text-blue-600 text-sm font-semibold mt-2 inline-block"
         >
           Read More
