@@ -39,46 +39,6 @@ Hosting: Netlify
 
 Environment Config: .env variables
 
-📂 Project Structure
-src/
-├── assets/
-
-├── components/
-│ ├── Header.jsx
-│ ├── Navbar.jsx
-│ ├── Footer.jsx
-│ ├── LatestNews.jsx
-│ ├── NewsCard.jsx
-│ ├── NewsDetailsCard.jsx
-│ ├── SocialLogin.jsx
-│ └── Loading.jsx
-
-├── pages/
-│ ├── Home.jsx
-│ ├── Category.jsx
-│ ├── NewsDetails.jsx
-│ ├── Login.jsx
-│ ├── Register.jsx
-│ ├── About.jsx
-│ └── Career.jsx
-
-├── layouts/
-│ ├── HomeLayout.jsx
-│ └── AuthLayout.jsx
-
-├── provider/
-│ ├── AuthProvider.jsx
-│ └── PrivateRoute.jsx
-
-├── routes/
-│ └── router.jsx
-
-├── firebase/
-│ └── firebase.config.js
-
-├── App.jsx
-└── main.jsx
-
 🔐 Environment Variables
 
 Create a .env.local file:
