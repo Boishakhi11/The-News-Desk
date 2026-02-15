@@ -41,9 +41,9 @@ Environment Config: .env variables
 
 📂 Project Structure
 src/
-├── assets/ # Images & static resources
+├── assets/
 
-├── components/ # Reusable UI components
+├── components/
 │ ├── Header.jsx
 │ ├── Navbar.jsx
 │ ├── Footer.jsx
@@ -53,7 +53,7 @@ src/
 │ ├── SocialLogin.jsx
 │ └── Loading.jsx
 
-├── pages/ # Main application pages
+├── pages/
 │ ├── Home.jsx
 │ ├── Category.jsx
 │ ├── NewsDetails.jsx
@@ -62,18 +62,18 @@ src/
 │ ├── About.jsx
 │ └── Career.jsx
 
-├── layouts/ # Page layout wrappers
+├── layouts/
 │ ├── HomeLayout.jsx
 │ └── AuthLayout.jsx
 
-├── provider/ # Global state management
+├── provider/
 │ ├── AuthProvider.jsx
 │ └── PrivateRoute.jsx
 
-├── routes/ # React Router configuration
+├── routes/
 │ └── router.jsx
 
-├── firebase/ # Firebase configuration
+├── firebase/
 │ └── firebase.config.js
 
 ├── App.jsx
